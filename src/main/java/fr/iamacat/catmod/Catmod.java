@@ -34,10 +34,7 @@ public class Catmod {
     public static CatTabFood catTab3 = new CatTabFood("catTab3");
     public static CatTabSpawn catTab4 = new CatTabSpawn("catTab4");
     public static CatTabMisc catTab5 = new CatTabMisc("catTab5");
-    public static Item[] yourTabIcons = { RegisterItems.cat_helmet, RegisterItems.cat_chestplate,
-        RegisterItems.cat_leggings, RegisterItems.cat_boots };
-
-    public static CatTabArmour catTab6 = new CatTabArmour("catTab6", yourTabIcons);
+    public static CatTabArmour catTab6 = new CatTabArmour("catTab6");
 
     public static CatTabIngots catTab7 = new CatTabIngots("catTab7");
 

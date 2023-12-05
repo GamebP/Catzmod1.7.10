@@ -33,12 +33,10 @@ public class CatSafeTeleporter extends Teleporter {
 
     public void placeInPortal(final Entity par1Entity, final double par2, final double par4, final double par6,
         final float par8) {
-        this.justPutMe(par1Entity);
     }
 
     public boolean placeInExistingPortal(final Entity par1Entity, final double par2, final double par4,
         final double par6, final float par8) {
-        this.justPutMe(par1Entity);
         return true;
     }
 
@@ -79,11 +77,11 @@ public class CatSafeTeleporter extends Teleporter {
                 d2 = (double)k2 + 0.5D - p_85188_1_.posZ;
                 label274:
 
-                for (i3 = this.worldServerInstance.getActualHeight() - 1; i3 >= 0; --i3)
+                for (i3 = this.world.getActualHeight() - 1; i3 >= 0; --i3)
                 {
-                    if (this.worldServerInstance.isAirBlock(i2, i3, k2))
+                    if (this.world.isAirBlock(i2, i3, k2))
                     {
-                        while (i3 > 0 && this.worldServerInstance.isAirBlock(i2, i3 - 1, k2))
+                        while (i3 > 0 && this.world.isAirBlock(i2, i3 - 1, k2))
                         {
                             --i3;
                         }
@@ -109,7 +107,7 @@ public class CatSafeTeleporter extends Teleporter {
                                         i5 = i3 + k4;
                                         int j5 = k2 + (j4 - 1) * l3 - i4 * k3;
 
-                                        if (k4 < 0 && !this.worldServerInstance.getBlock(l4, i5, j5).getMaterial().isSolid() || k4 >= 0 && !this.worldServerInstance.isAirBlock(l4, i5, j5))
+                                        if (k4 < 0 && !this.world.getBlock(l4, i5, j5).getMaterial().isSolid() || k4 >= 0 && !this.world.isAirBlock(l4, i5, j5))
                                         {
                                             continue label274;
                                         }
@@ -145,11 +143,11 @@ public class CatSafeTeleporter extends Teleporter {
                     d2 = (double)k2 + 0.5D - p_85188_1_.posZ;
                     label222:
 
-                    for (i3 = this.worldServerInstance.getActualHeight() - 1; i3 >= 0; --i3)
+                    for (i3 = this.world.getActualHeight() - 1; i3 >= 0; --i3)
                     {
-                        if (this.worldServerInstance.isAirBlock(i2, i3, k2))
+                        if (this.world.isAirBlock(i2, i3, k2))
                         {
-                            while (i3 > 0 && this.worldServerInstance.isAirBlock(i2, i3 - 1, k2))
+                            while (i3 > 0 && this.world.isAirBlock(i2, i3 - 1, k2))
                             {
                                 --i3;
                             }
@@ -167,7 +165,7 @@ public class CatSafeTeleporter extends Teleporter {
                                         l4 = i3 + j4;
                                         i5 = k2 + (i4 - 1) * l3;
 
-                                        if (j4 < 0 && !this.worldServerInstance.getBlock(k4, l4, i5).getMaterial().isSolid() || j4 >= 0 && !this.worldServerInstance.isAirBlock(k4, l4, i5))
+                                        if (j4 < 0 && !this.world.getBlock(k4, l4, i5).getMaterial().isSolid() || j4 >= 0 && !this.world.isAirBlock(k4, l4, i5))
                                         {
                                             continue label222;
                                         }
@@ -213,9 +211,9 @@ public class CatSafeTeleporter extends Teleporter {
                 i1 = 70;
             }
 
-            if (i1 > this.worldServerInstance.getActualHeight() - 10)
+            if (i1 > this.world.getActualHeight() - 10)
             {
-                i1 = this.worldServerInstance.getActualHeight() - 10;
+                i1 = this.world.getActualHeight() - 10;
             }
 
             j2 = i1;
@@ -230,7 +228,7 @@ public class CatSafeTeleporter extends Teleporter {
                         i4 = j2 + k3;
                         j4 = k2 + (j3 - 1) * l2 - i3 * l5;
                         flag = k3 < 0;
-                        this.worldServerInstance.setBlock(l3, i4, j4, flag ? Blocks.obsidian : Blocks.air);
+                        this.world.setBlock(l3, i4, j4, flag ? Blocks.obsidian : Blocks.air);
                     }
                 }
             }
@@ -246,7 +244,7 @@ public class CatSafeTeleporter extends Teleporter {
                     i4 = j2 + k3;
                     j4 = k2 + (j3 - 1) * l2;
                     flag = j3 == 0 || j3 == 3 || k3 == -1 || k3 == 3;
-                    this.worldServerInstance.setBlock(l3, i4, j4, (Block)(flag ? Blocks.obsidian : Blocks.portal), 0, 2);
+                    this.world.setBlock(l3, i4, j4, (flag ? Blocks.obsidian : Blocks.portal), 0, 2);
                 }
             }
 
@@ -257,7 +255,7 @@ public class CatSafeTeleporter extends Teleporter {
                     l3 = k5 + (j3 - 1) * l5;
                     i4 = j2 + k3;
                     j4 = k2 + (j3 - 1) * l2;
-                    this.worldServerInstance.notifyBlocksOfNeighborChange(l3, i4, j4, this.worldServerInstance.getBlock(l3, i4, j4));
+                    this.world.notifyBlocksOfNeighborChange(l3, i4, j4, this.world.getBlock(l3, i4, j4));
                 }
             }
         }
@@ -274,7 +272,7 @@ public class CatSafeTeleporter extends Teleporter {
             || bid == Blocks.sand
             || bid == Blocks.sandstone
             || bid == Blocks.farmland);
-    
+    }
 
     public void sendToThisDimension(final Entity e, final double newX, final double newY, final double newZ,
         final int ro) {
